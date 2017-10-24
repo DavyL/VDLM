@@ -18,7 +18,7 @@ typedef struct Scoord{
 	int b;
 }SCoord[S_WIDTH][S_HEIGHT];
 
-SColor randColor();
+SColor rand_color();
 
 
 #endif

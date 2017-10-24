@@ -49,13 +49,13 @@ int main(int argc, char **argv){
 			/*SColor color = randColor();				
 			SColor white;
 			white.r = white.g = white.b = 255;
-			fillScreen(renderer, coordinates, color);			
+			fill_screen(renderer, coordinates, color);			
 			*/
 			SColor white; 
 			white.r = white.g = white.b = 255;
-			drawLine(renderer, coordinates, S_WIDTH/2, S_HEIGHT/2, S_WIDTH/4, S_HEIGHT/4);
-		 	drawCircle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
-			drawEllipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);			
+			draw_line(renderer, coordinates, S_WIDTH/2, S_HEIGHT/2, S_WIDTH/4, S_HEIGHT/4);
+		 	draw_circle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
+			draw_ellipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);			
 
 			SDL_Delay(10000);
 
@@ -80,7 +80,7 @@ int main(int argc, char **argv){
 
 //Colors the whole screen with the color, if color contains only -1, the screen will be colored randomly
 //returns a random color
-SColor randColor( ){
+SColor rand_color( ){
 	SColor color;
 	color.r = rand()%255;
 	color.g = rand()%255;

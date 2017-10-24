@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int fillScreen(SDL_Renderer * aRenderer, SCoord coordinates, SColor color)
+int fill_screen(SDL_Renderer * aRenderer, SCoord coordinates, SColor color)
 {
 	int x;
 	int y;
@@ -21,7 +21,7 @@ int fillScreen(SDL_Renderer * aRenderer, SCoord coordinates, SColor color)
 	for (x = 0; x < S_WIDTH; x++) {
 		for (y = 0; y < S_HEIGHT; y++) {
 			if (!isColor) {
-				toPrint = randColor();
+				toPrint = rand_color();
 			}
 			coordinates[x][y].r = toPrint.r;
 			coordinates[x][y].g = toPrint.g;
@@ -38,7 +38,7 @@ int fillScreen(SDL_Renderer * aRenderer, SCoord coordinates, SColor color)
 }
 
 //Draws a line between (xa, ya) and (xb, yb)
-int drawLine(SDL_Renderer * aRenderer, SCoord coordinates, int xa, int ya,
+int draw_line(SDL_Renderer * aRenderer, SCoord coordinates, int xa, int ya,
 	     int xb, int yb)
 {
 
@@ -56,7 +56,7 @@ int drawLine(SDL_Renderer * aRenderer, SCoord coordinates, int xa, int ya,
 }
 
 //Each coordintes takes as color the medium value of colors around
-int averageGrid(SDL_Renderer * aRenderer, SCoord coordinates, SCoord backup)
+int average_grid(SDL_Renderer * aRenderer, SCoord coordinates, SCoord backup)
 {
 
 	int x;
@@ -103,7 +103,7 @@ int averageGrid(SDL_Renderer * aRenderer, SCoord coordinates, SCoord backup)
 }
 
 //Draws a circle with a center (x0, y0)
-int drawCircle(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
+int draw_circle(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
 	       int x0, int y0, int radius)
 {
 
@@ -139,7 +139,7 @@ int drawCircle(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
 	SDL_RenderPresent(aRenderer);
 }
 
-int drawEllipse(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
+int draw_ellipse(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
 		int xc, int yc, int width, int height)
 {
 		SDL_SetRenderDrawColor(aRenderer, color.r, color.g, color.b, 255);
