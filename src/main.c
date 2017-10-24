@@ -7,30 +7,33 @@
 #include "main.h"
 #include "draw.h"
 
-
-
 int main(int argc, char **argv){
-	
+		
 	/* Initialisation simple */
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		fprintf(stdout, "Échec de l'initialisation de la SDL (%s)\n",
 			SDL_GetError());
 		return -1;
 	}
+	//IMG_Init(IMG_INIT_JPG);
 
 	{
 		/* Création de la fenêtre */
 		SDL_Window *pWindow = NULL;
 		pWindow =
-		    SDL_CreateWindow("Ma première application SDL2",
+		    SDL_CreateWindow("VDLM",
 				     SDL_WINDOWPOS_UNDEFINED,
 				     SDL_WINDOWPOS_UNDEFINED, S_WIDTH, S_HEIGHT,
 				     SDL_WINDOW_SHOWN);
 
 		if (pWindow) {
+		//	IMG_Init(IMG_INIT_JPG);
+
 			SDL_Renderer * renderer = SDL_CreateRenderer( pWindow, -1, 0);
 			SDL_Texture * texture = SDL_CreateTexture(renderer,
 					        SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, S_WIDTH, S_HEIGHT);	//Create texture for pixel drawing
+			//SDL_Surface * image = IMG_Load("mona.jpg");
+			//SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
 			SCoord coordinates;	
 			SCoord * backup = malloc(sizeof(SCoord));
 
@@ -50,15 +53,18 @@ int main(int argc, char **argv){
 			SDL_DestroyTexture(texture);
 			SDL_DestroyRenderer(renderer);
 			SDL_DestroyWindow(pWindow);
+			free(backup);
 		} else {
 			fprintf(stderr,
 				"Erreur de création de la fenêtre: %s\n",
 				SDL_GetError());
 		}
+		
 	}
-
+	//IMG_Quit();
 	SDL_Quit();
-
+	
+	
 	return 0;
 }
 

@@ -176,4 +176,4 @@ int drawEllipse(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
 			sigma += a2 * ((4 * y) + 6);
 		}
 	SDL_RenderPresent(aRenderer);
-}	
+}

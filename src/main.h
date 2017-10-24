@@ -2,8 +2,8 @@
 #define MAIN_H
 #include "stdlib.h"
 
-#define S_WIDTH 720
-#define S_HEIGHT 720
+#define S_WIDTH 600
+#define S_HEIGHT 600
 
 
 typedef struct Scolor{
