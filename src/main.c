@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "main.h"
-#include "draw.h"
+#include "utils.h"
 
 int main(int argc, char **argv){
 		
