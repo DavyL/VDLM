@@ -27,23 +27,32 @@ int main(int argc, char **argv){
 				     SDL_WINDOW_SHOWN);
 
 		if (pWindow) {
-		//	IMG_Init(IMG_INIT_JPG);
+			IMG_Init(IMG_INIT_JPG);
 
 			SDL_Renderer * renderer = SDL_CreateRenderer( pWindow, -1, 0);
-			SDL_Texture * texture = SDL_CreateTexture(renderer,
-					        SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, S_WIDTH, S_HEIGHT);	//Create texture for pixel drawing
-			//SDL_Surface * image = IMG_Load("mona.jpg");
-			//SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
+		//	SDL_Texture * texture = SDL_CreateTexture(renderer,
+		//			        SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, S_WIDTH, S_HEIGHT);	//Create texture for pixel drawing
+			SDL_Surface * image = IMG_Load("mona.jpg");
+			if(image == NULL){
+				printf("Couldn't load image using IMG_Load()\n");
+				return -1;
+			}
+			SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
 			SCoord coordinates;	
 			SCoord * backup = malloc(sizeof(SCoord));
 
+			SDL_RenderCopy(renderer, texture, NULL, NULL);	
+			SDL_RenderPresent(renderer);
+			
 			srand(time(NULL));
 			
-			SColor color = randColor();				
+			/*SColor color = randColor();				
 			SColor white;
 			white.r = white.g = white.b = 255;
 			fillScreen(renderer, coordinates, color);			
-			
+			*/
+			SColor white; 
+			white.r = white.g = white.b = 255;
 			drawLine(renderer, coordinates, S_WIDTH/2, S_HEIGHT/2, S_WIDTH/4, S_HEIGHT/4);
 		 	drawCircle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
 			drawEllipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);			
@@ -53,6 +62,7 @@ int main(int argc, char **argv){
 			SDL_DestroyTexture(texture);
 			SDL_DestroyRenderer(renderer);
 			SDL_DestroyWindow(pWindow);
+			SDL_FreeSurface(image);
 			free(backup);
 		} else {
 			fprintf(stderr,
@@ -61,7 +71,7 @@ int main(int argc, char **argv){
 		}
 		
 	}
-	//IMG_Quit();
+	IMG_Quit();
 	SDL_Quit();
 	
 	
