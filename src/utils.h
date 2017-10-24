@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-
+ 
 //Size of the window
-#define S_WIDTH 500
-#define S_HEIGHT 500
+#define S_WIDTH 10
+#define S_HEIGHT 10
 
 
 //FLAGS for graph direction
@@ -36,7 +36,11 @@ typedef struct Scoord{
 	Node * node;
 }SCoord[S_WIDTH][S_HEIGHT];
 
+//returns a color with RGB values
 SColor rand_color();
+
+//returns x (mod) p >= 0
+int mod(int x, int p);
 
 //GRAPH PART
 

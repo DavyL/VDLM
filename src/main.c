@@ -42,7 +42,12 @@ int main(int argc, char **argv){
 
 			SDL_RenderCopy(renderer, texture, NULL, NULL);	
 			SDL_RenderPresent(renderer);
-			
+
+			Node * root;
+			fill_graph(root, coordinates);
+
+
+
 			srand(time(NULL));
 			
 			/*SColor color = randColor();				
