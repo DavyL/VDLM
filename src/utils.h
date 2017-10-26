@@ -34,16 +34,18 @@ typedef struct Scoord{
 	int g;
 	int b;
 	Node * node;
-}SCoord[S_WIDTH][S_HEIGHT];
+}SCoord[S_WIDTH + 1][S_HEIGHT + 1]; //The +1 are needed, both last cell of the array will contain pointers the other side of the lattice
 
 //returns a color with RGB values
 SColor rand_color();
 
-//returns x (mod) p >= 0
+//returns p+1 if x<0<p<=x
 int mod(int x, int p);
 
 //GRAPH PART
 
+//init_graph() allocates memory for each node
+int init_graph(SCoord coordinates);
 //create_node() returns a pointer to a node connected to other nodes
 Node * create_node( Node * node, Node * right, Node * top, Node * left, Node * bottom);
 
