@@ -3,8 +3,8 @@
 #include <SDL2/SDL_image.h>
  
 //Size of the window
-#define S_WIDTH 10
-#define S_HEIGHT 10
+#define S_WIDTH 500
+#define S_HEIGHT 500
 
 
 //FLAGS for graph direction
@@ -52,10 +52,11 @@ Node * create_node( Node * node, Node * right, Node * top, Node * left, Node * b
 //add_node() returns a pointer to a newly created node that is at the [direction] of self
 Node * add_node(Node * self, int direction);
 
-//fill_graph() fills a graph, isomorphic to some kind of discrete torus, it contains as many nodes
+//fill_graph() fills a graph, that looks like a plane, it contains as many nodes
 //as there are coordinates
 Node * fill_graph(Node * root, SCoord coordinates);
 
+int free_node(Node * self);
 
 //DRAWING part
 

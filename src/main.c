@@ -44,9 +44,7 @@ int main(int argc, char **argv){
 			SDL_RenderPresent(renderer);
 
 			Node * root;
-			fill_graph(root, coordinates);
-
-
+		//	fill_graph(root, coordinates);
 
 			srand(time(NULL));
 			
@@ -58,10 +56,9 @@ int main(int argc, char **argv){
 			SColor white; 
 			white.r = white.g = white.b = 255;
 			draw_line(renderer, coordinates, S_WIDTH/2, S_HEIGHT/2, S_WIDTH/4, S_HEIGHT/4);
-		 	draw_circle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
-			draw_ellipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);			
-
-			SDL_Delay(10000);
+		 	//draw_circle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
+			//draw_ellipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);	
+			SDL_Delay(1000);
 
 			SDL_DestroyTexture(texture);
 			SDL_DestroyRenderer(renderer);
