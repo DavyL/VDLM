@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_render.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -37,8 +38,9 @@ int main(int argc, char **argv){
 				return -1;
 			}
 			SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
+			texture->access = SDL_TEXTUREACCESS_STREAMING;
 			SCoord coordinates;	
-			SCoord backup;
+			
 
 			SDL_RenderCopy(renderer, texture, NULL, NULL);	
 			SDL_RenderPresent(renderer);
@@ -52,15 +54,15 @@ int main(int argc, char **argv){
 			draw_line(renderer, coordinates, S_WIDTH/2, S_HEIGHT/2, S_WIDTH/4, S_HEIGHT/4);
 		 	draw_circle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
 			draw_ellipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);	
-			//average_grid(renderer, coordinates, backup);
+			SDL_Delay(1000);
+			get_color( renderer, pWindow, texture, coordinates);
+			SDL_RenderPresent(renderer);
 			SDL_Delay(1000);
 
 			SDL_DestroyTexture(texture);
 			SDL_DestroyRenderer(renderer);
 			SDL_DestroyWindow(pWindow);
-			SDL_FreeSurface(image);
-			
-			//free(backup);
+			SDL_FreeSurface(image);	
 
 		} else {
 			fprintf(stderr,

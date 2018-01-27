@@ -54,7 +54,7 @@ Node * add_node(Node * self, int direction);
 
 //fill_graph() fills a graph, that looks like a plane, it contains as many nodes
 //as there are coordinates
-Node * fill_graph(SCoord coordinates);
+Node * fill_graph(Node * root, SCoord coordinates);
 
 int free_node(Node * self);
 

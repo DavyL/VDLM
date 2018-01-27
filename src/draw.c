@@ -64,11 +64,13 @@ int average_grid(SDL_Renderer * aRenderer, SCoord coordinates, SCoord backup)
 	int y;
 	for (x = 0; x < S_WIDTH; x++) {
 		for (y = 0; y < S_HEIGHT; y++) {
+	
 			backup[x][y].r = coordinates[x][y].r;
 			backup[x][y].g = coordinates[x][y].g;
 			backup[x][y].b = coordinates[x][y].b;
 		}
 	}
+	
 	for (x = 0; x < S_WIDTH; x++) {
 		for (y = 0; y < S_HEIGHT; y++) {
 			coordinates[x][y].r =
