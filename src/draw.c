@@ -34,7 +34,7 @@ int fill_screen(SDL_Renderer * aRenderer, SCoord coordinates, SColor color)
 		}
 	}
 	SDL_RenderPresent(aRenderer);
-
+	return 0;
 }
 
 //Draws a line between (xa, ya) and (xb, yb)
@@ -45,14 +45,15 @@ int draw_line(SDL_Renderer * aRenderer, SCoord coordinates, int xa, int ya,
 	int x;
 	SDL_SetRenderDrawColor(aRenderer, 255, 255, 255, 255);
 
-	int slope = (xb - xa) / (yb - ya);
+	int slope = (xb - xa) / (yb - ya); 
 	int dist = abs(xb - xa);
 
 	for (x = 0; x < dist; x++) {
 		SDL_RenderDrawPoint(aRenderer, xa - x,
-				    ya - x * (xb - xa) / (yb - ya));
+				    ya - x * slope);
 	}
 	SDL_RenderPresent(aRenderer);
+	return 0;
 }
 
 //Each coordintes takes as color the medium value of colors around
@@ -99,7 +100,7 @@ int average_grid(SDL_Renderer * aRenderer, SCoord coordinates, SCoord backup)
 		}
 	}
 	SDL_RenderPresent(aRenderer);
-
+	return 0;
 }
 
 //Draws a circle with a center (x0, y0)
@@ -137,6 +138,7 @@ int draw_circle(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
 		}
 	}
 	SDL_RenderPresent(aRenderer);
+	return 0;
 }
 
 int draw_ellipse(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
@@ -176,4 +178,6 @@ int draw_ellipse(SDL_Renderer * aRenderer, SCoord coordinates, SColor color,
 			sigma += a2 * ((4 * y) + 6);
 		}
 	SDL_RenderPresent(aRenderer);
+	return 0;
 }
+

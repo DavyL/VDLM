@@ -54,10 +54,11 @@ Node * add_node(Node * self, int direction);
 
 //fill_graph() fills a graph, that looks like a plane, it contains as many nodes
 //as there are coordinates
-Node * fill_graph(Node * root, SCoord coordinates);
+Node * fill_graph(SCoord coordinates);
 
 int free_node(Node * self);
 
+int free_graph(SCoord coordinates);
 //DRAWING part
 
 //fill_screen fils the screen with the color, if color ==(-1,-1,-1) as values, then coloring will be 

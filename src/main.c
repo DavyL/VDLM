@@ -38,33 +38,30 @@ int main(int argc, char **argv){
 			}
 			SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
 			SCoord coordinates;	
-			SCoord * backup = malloc(sizeof(SCoord));
+			SCoord backup;
 
 			SDL_RenderCopy(renderer, texture, NULL, NULL);	
 			SDL_RenderPresent(renderer);
 
-			Node * root;
-		//	fill_graph(root, coordinates);
-
-			srand(time(NULL));
+			fill_graph(coordinates);
 			
-			/*SColor color = randColor();				
-			SColor white;
-			white.r = white.g = white.b = 255;
-			fill_screen(renderer, coordinates, color);			
-			*/
+			free_graph(coordinates);
+
 			SColor white; 
 			white.r = white.g = white.b = 255;
 			draw_line(renderer, coordinates, S_WIDTH/2, S_HEIGHT/2, S_WIDTH/4, S_HEIGHT/4);
-		 	//draw_circle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
-			//draw_ellipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);	
+		 	draw_circle(renderer, coordinates, white, S_WIDTH/2, S_HEIGHT/2, 42);
+			draw_ellipse(renderer, coordinates, white , S_WIDTH/2, S_HEIGHT/2, 42, 69);	
+			//average_grid(renderer, coordinates, backup);
 			SDL_Delay(1000);
 
 			SDL_DestroyTexture(texture);
 			SDL_DestroyRenderer(renderer);
 			SDL_DestroyWindow(pWindow);
 			SDL_FreeSurface(image);
-			free(backup);
+			
+			//free(backup);
+
 		} else {
 			fprintf(stderr,
 				"Erreur de création de la fenêtre: %s\n",
